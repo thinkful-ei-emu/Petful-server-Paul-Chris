@@ -1,6 +1,6 @@
 # Express Boilerplate!
 
-This is a boilerplate project used for starting new projects!
+Uses the express package in node. Also uses mocha and supertest and chai for testing.
 
 ## How do set up?
 
@@ -20,6 +20,38 @@ Start the application `npm start`
 Start nodemon for the application `npm run dev`
 
 Run the tests in watch mode `npm test`
+
+## Endpoints
+GET `/api/cat` gets the first cat in queue: 
+Example:
+{
+  imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+  imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
+  name: 'Fluffy',
+  sex: 'Female',
+  age: 2,
+  breed: 'Bengal',
+  story: 'Thrown on the street'
+}
+
+GET `/api/cat/all` gets all the cats, in array form, in queue order.
+
+DELETE `/api/cat` dequeues the first cat in queue, sends back status 204, even when we are out of cats: 
+
+POST `/api/cat`, needs in request body something like
+{
+  imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+  imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
+  name: 'Fluffy',
+  sex: 'Female',
+  age: 2,
+  breed: 'Bengal',
+  story: 'Thrown on the street'
+} //imageDescription is unnecessary, all other key-value are necessary.
+
+And then the same endpoints for `/api/dog` except replace cat with dog.
+
+Sample server:https://petful-chris-paul.herokuapp.com/
 
 ## Deploying
 
